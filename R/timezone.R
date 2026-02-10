@@ -2,10 +2,10 @@
 #'
 #' Change the time zone, and restore it afterwards.
 #'
-#' `with_time_zone()` runs the code with the specified time zone and
+#' `with_timezone()` runs the code with the specified time zone and
 #' resets it afterwards.
 #'
-#' `local_time_zone()` changes the time zone for the caller
+#' `local_timezone()` changes the time zone for the caller
 #' execution environment.
 #'
 #' @template with
@@ -17,7 +17,7 @@
 #' @examples
 #' Sys.time()
 #' with_timezone("Europe/Paris", print(Sys.time()))
-#' with_timezone("US/Pacific", print(Sys.time()))
+#' with_timezone("America/Los_Angeles", print(Sys.time()))
 #'
 with_timezone <- function(tz, code) {
   reset_timezone()
@@ -34,7 +34,7 @@ with_timezone <- function(tz, code) {
 #' }
 #'
 #' fun2 <- function() {
-#'   local_timezone("US/Pacific")
+#'   local_timezone("America/Los_Angeles")
 #'   print(Sys.time())
 #' }
 #' Sys.time()
